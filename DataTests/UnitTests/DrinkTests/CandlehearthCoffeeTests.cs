@@ -14,20 +14,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
-        public void ShouldBeAssignableToAbstractDrinkClass()
-        {
-            CandlehearthCoffee cc = new CandlehearthCoffee();
-            Assert.IsAssignableFrom<CandlehearthCoffee>(cc);
-        }
-
-        [Fact]
-        public void ShouldBeAssignableToIOrderItemInterface()
-        {
-            CandlehearthCoffee cc = new CandlehearthCoffee();
-            
-        }
-
-        [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
@@ -140,9 +126,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(true, Size.Small, "Small Candlehearth Decaf Coffee")]
-        [InlineData(true, Size.Medium, "Medium Candlehearth Decaf Coffee")]
-        [InlineData(true, Size.Large, "Large Candlehearth Decaf Coffee")]
+        [InlineData(true, Size.Small, "Small Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Medium, "Medium Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Large, "Large Decaf Candlehearth Coffee")]
         [InlineData(false, Size.Small, "Small Candlehearth Coffee")]
         [InlineData(false, Size.Medium, "Medium Candlehearth Coffee")]
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
