@@ -14,6 +14,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
+            //BriarheartBurger bb = new BriarheartBurger();
+            //Assert.True(bb.Bun);
         }
 
         [Fact]

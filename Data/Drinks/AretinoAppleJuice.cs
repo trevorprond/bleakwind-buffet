@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
    
-    class ArentinoAppleJuice
+    public class AretinoAppleJuice
     {
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>name of juice and sizes</returns>
         public override string ToString()
         {
-            return @"""[Size] Arentino Apple Juice"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Aretino Apple Juice";
         }
     }
 }

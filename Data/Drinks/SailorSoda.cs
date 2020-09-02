@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
+
 /*
  * Author: Trevor Prondzinski
  * Class name: SailorSoda.cs
@@ -11,7 +12,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    class SailorSoda
+    public class SailorSoda
     {
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>name of soda and flavors</returns>
         public override string ToString()
         {
-            return @"""[Size][Flavor] Sailor Soda"" where [Size] is ""Large"", ""Medium"", or ""Small"" and [Flavor] is ""Blackberry"", ""Cherry"", ""Grapefruit"", ""Lemon"", ""Peach"", or ""Watermellon""";
+            return Size + " " + Flavor + " Sailor Soda";
         }
     }
 }

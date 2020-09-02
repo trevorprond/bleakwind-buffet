@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    class CandlehearthCoffee
+    public class CandlehearthCoffee
     {
 
         /// <summary>
@@ -102,7 +102,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>name of coffee, sizes, and decaf version</returns>
         public override string ToString()
         {
-            return @"""[Size] Candlehearth Coffee"" when the coffee is caffinated, or ""[Size] Decaf Candlehearth Coffee"" when it is decaffinated, and for both[Size] is ""Large"", ""Medium"", or ""Small""";
+            if (Decaf)
+            {
+                return Size + " Candlehearth Decaf Coffee";
+            }
+            else return Size + " Candlehearth Coffee";
         }
     }
 }
