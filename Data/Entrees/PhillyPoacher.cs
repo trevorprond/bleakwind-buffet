@@ -19,7 +19,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the calories of the Philly cheesesteak sandwich
         /// </summary>
-        public uint Calories => 404;
+        public uint Calories => 784;
 
         /// <summary>
         /// Gets whether or not to add Sirloin

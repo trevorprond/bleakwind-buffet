@@ -86,7 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Cheese) instructions.Add("Hold cheese");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Tomato) instructions.Add("Hold tomato");
-                if (!Lettuce) instructions.Add("Hold Lettuce");
+                if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
                 if (!Bacon) instructions.Add("Hold bacon");
                 if (!Egg) instructions.Add("Hold egg");

@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Trevor Prondzinski
  * Class: MarkarthMilkTests.cs
  * Purpose: Test the MarkarthMilk.cs class in the Data library
  */

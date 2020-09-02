@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>name of fruit salad and sizea</returns>
         public override string ToString()
         {
-            return @"""[Size] Vokun Salad"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Vokun Salad";
         }
 
     }

@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>name of Hash brown pancakes and sizea</returns>
         public override string ToString()
         {
-            return @"""[Size] Fried Miraak"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Fried Miraak";
         }
 
     }

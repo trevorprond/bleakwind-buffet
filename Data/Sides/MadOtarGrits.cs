@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>name of Cheesy Grits and sizea</returns>
         public override string ToString()
         {
-            return @"""[Size] Mad Otar Grits"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Mad Otar Grits";
         }
 
     }

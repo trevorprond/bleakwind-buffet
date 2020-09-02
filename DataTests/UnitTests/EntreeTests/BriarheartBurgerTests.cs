@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Trevor Prondzinski
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
@@ -112,7 +112,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger bb = new BriarheartBurger();
 
-            Assert.Equal(743, (double)bb.Calories);
+            Assert.Equal((uint) 743, bb.Calories);
         }
 
         [Theory]

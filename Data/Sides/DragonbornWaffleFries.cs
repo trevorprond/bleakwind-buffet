@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Sides
                 {
                     return calories = 100;
                 }
-                else return calories = 42;
+                else return calories = 77;
             }
         }
 
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>name of Cajun fries and sizea</returns>
         public override string ToString()
         {
-            return @"""[Size] Dragonborn Waffle Fries"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Dragonborn Waffle Fries";
         }
 
     }

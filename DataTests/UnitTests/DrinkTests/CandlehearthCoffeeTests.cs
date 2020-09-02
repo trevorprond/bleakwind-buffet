@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Trevor Prondzinski
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
