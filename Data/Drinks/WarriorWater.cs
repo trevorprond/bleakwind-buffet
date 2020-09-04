@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    class WarriorWater
+    public class WarriorWater
     {
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>name of water and sizes</returns>
         public override string ToString()
         {
-            return @"""[Size] Warrior Water"" where [Size] is ""Large"", ""Medium"", or ""Small""";
+            return Size + " Warrior Water";
         }
     }
 }

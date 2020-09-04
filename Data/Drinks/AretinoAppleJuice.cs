@@ -10,7 +10,7 @@ using BleakwindBuffet.Data.Enums;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
-   
+
     public class AretinoAppleJuice
     {
 

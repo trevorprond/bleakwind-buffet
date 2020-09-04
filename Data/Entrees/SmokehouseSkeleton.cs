@@ -35,7 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets whether or not to add Tomato
         /// </summary>
-        public bool Hashbrowns { get; set; } = true;
+        public bool HashBrowns { get; set; } = true;
 
         /// <summary>
         /// Gets whether or not to add Pancake
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
                 List<string> instructions = new List<string>();
                 if (!SausageLink) instructions.Add("Hold sausage");
                 if (!Egg) instructions.Add("Hold eggs");
-                if (!Hashbrowns) instructions.Add("Hold hash browns");
+                if (!HashBrowns) instructions.Add("Hold hash browns");
                 if (!Pancake) instructions.Add("Hold pancakes");
                 return instructions;
             }
