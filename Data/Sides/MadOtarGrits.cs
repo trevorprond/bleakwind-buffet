@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Sides
 {
     
-    public class MadOtarGrits
+    public class MadOtarGrits : Side, IOrderItem
     {
         /// <summary>
         /// Gets the price of the Cheesy Grits
@@ -21,7 +21,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Gets the price of the Cheesy Grits based on size
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -47,7 +47,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Gets the calories of the Cheesy Grits based on size
         /// </summary>
         uint calories;
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Allows customizations on the Cheesy Grits even though there isn't any
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

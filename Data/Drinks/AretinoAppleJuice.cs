@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
 
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink, IOrderItem
     {
 
         /// <summary>
@@ -20,9 +20,14 @@ namespace BleakwindBuffet.Data.Drinks
         double price;
 
         /// <summary>
+        /// private variable declaration
+        /// </summary>
+        private Size size = Size.Small;
+
+        /// <summary>
         /// Gets the price of the juice based on size
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -40,16 +45,13 @@ namespace BleakwindBuffet.Data.Drinks
 
         }
 
-        /// <summary>
-        /// Gets the Size of the juice with it being a default of small
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+       
 
         /// <summary>
         /// Gets the calories of the juice based on size
         /// </summary>
         uint calories;
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -75,7 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Allows customization on the juice
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    public class WarriorWater
+    public class WarriorWater : Drink, IOrderItem
     {
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the price of the water based on size
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -40,7 +40,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Gets the calories of the water based on size
         /// </summary>
         uint calories;
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -65,7 +65,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Allows customization on the water
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

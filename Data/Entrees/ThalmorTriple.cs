@@ -10,17 +10,17 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        public double Price => 8.32;
+        public override double Price => 8.32;
 
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
-        public uint Calories => 943;
+        public override uint Calories => 943;
 
         /// <summary>
         /// Gets whether or not to add ketchup
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Allows customizations on the burger
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
