@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor { get; set; } 
 
         /// <summary>
         /// Gets whether or not to add ice

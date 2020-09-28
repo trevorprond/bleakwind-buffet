@@ -1,0 +1,24 @@
+﻿<Page x:Class="PointOfSale.EntreeLists"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="450"
+      Title="EntreeLists">
+
+    <Grid>
+        <Grid>
+            <Button Content="Briarheart Burger" Margin="128,12.5,149,635" Click="BriarBurger_Click"/>
+            <Button Content="Double Draugr" Margin="128,100,149,550" Click="DoubleDraugr_Click"/>
+            <Button Content="Thalmor Triple" Margin="128,200,149,450" Click="ThalmorTriple_Click"/>
+            <Button Content="Smokehouse Skeleton" Margin="128,300,149,350" Click="SmokehouseSkeleton_Click"/>
+            <Button Content="Garden Orc Omelette" Margin="128,400,149,250" Click="GardenOrcOmelete_Click"/>
+            <Button Content="Philly Poacher" Margin="128,500,149 150" Click="PhillyPoacher_Click"/>
+            <Button Content="Thugs T-Bone" Margin="128,600,149,50" Click="Button_Click"/>
+
+
+        </Grid>
+    </Grid>
+</Page>
