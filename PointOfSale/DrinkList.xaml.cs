@@ -1,4 +1,5 @@
-﻿using PointOfSale.DrinkCustomization;
+﻿using BleakwindBuffet.Data.Drinks;
+using PointOfSale.DrinkCustomization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,7 +60,10 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void AretinoAppleJuice_Click(object sender, RoutedEventArgs e)
         {
+            var Aj = new AretinoAppleJuice();
+
             this.NavigationService.Navigate(new AretinoApple_Juice());
+
         }
 
         /// <summary>

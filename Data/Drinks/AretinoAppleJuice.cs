@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -11,9 +13,20 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
 
-    public class AretinoAppleJuice : Drink, IOrderItem
-    {
+    public class AretinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
 
+     
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "" )
+        { 
+           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets the price of the juice
         /// </summary>
@@ -72,8 +85,23 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets whether or not to add ice
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        } 
 
+        private bool ice = false;
         /// <summary>
         /// Allows customization on the juice
         /// </summary>
