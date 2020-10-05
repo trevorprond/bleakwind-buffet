@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -11,8 +13,24 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    public class MarkarthMilk : Drink, IOrderItem
+    public class MarkarthMilk : Drink, IOrderItem, INotifyPropertyChanged
     {
+
+
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets the price of the milk
@@ -43,7 +61,26 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the Size of the milk with it being a default of small
         /// </summary>
-       
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// private variable declaration
+        /// </summary>
+        private Size size = Size.Small;
 
         /// <summary>
         /// Gets the calories of the milk based on size
@@ -65,12 +102,30 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-       
+
 
         /// <summary>
         /// Gets whether or not to add ice
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+
+
+        private bool ice = false;
 
         /// <summary>
         /// Allows customization on the milk

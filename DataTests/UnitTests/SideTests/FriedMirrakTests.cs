@@ -14,6 +14,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void ChangingSizesNotifiesSizeProperty()
+        {
+            var fm = new FriedMiraak();
+
+            Assert.PropertyChanged(fm, "Size", () => fm.Size = Size.Medium);
+            Assert.PropertyChanged(fm, "Size", () => fm.Size = Size.Large);
+            Assert.PropertyChanged(fm, "Size", () => fm.Size = Size.Small);
+        }
+        [Fact]
         public void ShouldBeASide()
         {
             FriedMiraak fm = new FriedMiraak();

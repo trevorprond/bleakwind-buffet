@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 /*
@@ -10,8 +12,22 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     
-    public class GardenOrcOmelette: Entree, IOrderItem
+    public class GardenOrcOmelette: Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets the price of the Vegetarian omelette
         public override double Price => 4.57;
@@ -24,22 +40,85 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets whether or not to add Broccoli
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        public bool Broccoli
+        {
+            get
+            {
+                return this.broccoli;
+            }
+            set
+            {
+                if (value != this.broccoli)
+                {
+                    this.broccoli = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool broccoli = true;
 
         /// <summary>
         /// Gets whether or not to add Mushrooms
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        public bool Mushrooms
+        {
+            get
+            {
+                return this.mushrooms;
+            }
+            set
+            {
+                if (value != this.mushrooms)
+                {
+                    this.mushrooms = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool mushrooms = true;
 
         /// <summary>
         /// Gets whether or not to add Tomato
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get
+            {
+                return this.tomato;
+            }
+            set
+            {
+                if (value != this.tomato)
+                {
+                    this.tomato = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
+        private bool tomato = true;
         /// <summary>
         /// Gets whether or not to add cheddar
         /// </summary>
-        public bool Cheddar { get; set; } = true;
+        public bool Cheddar
+        {
+            get
+            {
+                return this.cheddar;
+            }
+            set
+            {
+                if (value != this.cheddar)
+                {
+                    this.cheddar = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool cheddar = true;
 
 
 

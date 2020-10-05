@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -11,9 +13,22 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    public class CandlehearthCoffee : Drink, IOrderItem
+    public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets the price of the coffee
         /// </summary>
@@ -43,7 +58,26 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the Size of the coffee with it being a default of small
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// private variable declaration
+        /// </summary>
+        private Size size = Size.Small;
 
         /// <summary>
         /// Gets the calories of the coffee based on size
@@ -70,17 +104,67 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets whether or not to add ice
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+
+
+        private bool ice = false;
 
         /// <summary>
         /// gets whether or not leave room for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get
+            {
+                return this.roomForcream;
+            }
+            set
+            {
+                if (value != this.roomForcream)
+                {
+                    this.roomForcream = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
+
+
+        private bool roomForcream = false;
         /// <summary>
         /// gets whether they want it Decaf or not
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return this.decaf;
+            }
+            set
+            {
+                if (value != this.decaf)
+                {
+                    this.decaf = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private bool decaf = false;
 
         /// <summary>
         /// Allows customization on the coffee

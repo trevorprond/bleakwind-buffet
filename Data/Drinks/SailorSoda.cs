@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -12,9 +14,21 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    public class SailorSoda: Drink, IOrderItem
+    public class SailorSoda: Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets the price of the soda
         /// </summary>
@@ -44,8 +58,27 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the Size of the soda with it being a default of small
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
-        
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// private variable declaration
+        /// </summary>
+        private Size size = Size.Small;
+
         /// <summary>
         /// Gets the calories of the soda based on size
         /// </summary>
@@ -69,13 +102,44 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; } 
+        public SodaFlavor Flavor
+        {
+            get
+            {
+                return this.flavor;
+            }
 
+            set
+            {
+                if(value != this.flavor)
+                {
+                    this.flavor = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private SodaFlavor flavor = SodaFlavor.Cherry;
         /// <summary>
         /// Gets whether or not to add ice
         /// </summary>
-        public bool Ice { get; set; } = true;
-        
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool ice = true;
+
         /// <summary>
         /// Allows customization on the soda
         /// </summary>

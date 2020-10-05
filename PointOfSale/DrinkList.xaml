@@ -27,7 +27,7 @@
         <Button Grid.Row="1"
               Content="Markarth Milk" Margin="40" ClickMode="Release" Click="MarkarthMilk_Click" />
         <Button Grid.Row="2"
-              Content="Aretino Apple Juice" Margin="40" ClickMode="Release" Click="AretinoAppleJuice_Click" />
+              Content="Aretino Apple Juice" Margin="40" ClickMode="Release"  Click="AretinoAppleJuice_Click" />
         <Button Grid.Row="3"
               Content="Candlehearth Coffe" Margin="40" ClickMode="Release" Click="CandlehearthCoffe_Click" />
         <Button Grid.Row="4"

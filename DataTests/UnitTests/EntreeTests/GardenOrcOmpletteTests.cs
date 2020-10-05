@@ -13,6 +13,41 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var oo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(oo, "Tomato", () => oo.Tomato = false);
+            Assert.PropertyChanged(oo, "Tomato", () => oo.Tomato = true);
+        }
+
+        [Fact]
+        public void ChangingBroccoliNotifiesBroccoliProperty()
+        {
+            var oo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(oo, "Broccoli", () => oo.Broccoli = false);
+            Assert.PropertyChanged(oo, "Broccoli", () => oo.Broccoli = true);
+        }
+
+        [Fact]
+        public void ChangingMushroomsNotifiesMushroomsProperty()
+        {
+            var oo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(oo, "Mushrooms", () => oo.Mushrooms = false);
+            Assert.PropertyChanged(oo, "Mushrooms", () => oo.Mushrooms = true);
+        }
+
+        [Fact]
+        public void ChangingCheddarNotifiesCheddarProperty()
+        {
+            var oo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(oo, "Cheddar", () => oo.Cheddar = false);
+            Assert.PropertyChanged(oo, "Cheddar", () => oo.Cheddar = true);
+        }
+        [Fact]
         public void ShouldBeAEntree()
         {
             GardenOrcOmelette oo = new GardenOrcOmelette();

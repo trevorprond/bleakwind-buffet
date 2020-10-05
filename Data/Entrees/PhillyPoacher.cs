@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 /*
@@ -10,8 +12,23 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets the price of the Philly cheesesteak sandwich
         public override double Price => 7.23;
@@ -24,17 +41,65 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets whether or not to add Sirloin
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin
+        {
+            get
+            {
+                return this.sirloin;
+            }
+            set
+            {
+                if (value != this.sirloin)
+                {
+                    this.sirloin = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool sirloin = true;
 
         /// <summary>
         /// Gets whether or not to add Onion
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion
+        {
+            get
+            {
+                return this.onion;
+            }
+            set
+            {
+                if (value != this.onion)
+                {
+                    this.onion = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool onion = true;
 
         /// <summary>
         /// Gets whether or not to add Roll
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll
+        {
+            get
+            {
+                return this.roll;
+            }
+            set
+            {
+                if (value != this.roll)
+                {
+                    this.roll = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool roll = true;
 
 
         /// <summary>

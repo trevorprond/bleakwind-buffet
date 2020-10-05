@@ -21,12 +21,12 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for PhillyPoacher.xaml
     /// </summary>
-    public partial class PhillyPoacher : Page
+    public partial class Philly_Poacher : Page
     {
         /// <summary>
         /// initializes the philly poacher page
         /// </summary>
-        public PhillyPoacher()
+        public Philly_Poacher()
         {
             InitializeComponent();
         }

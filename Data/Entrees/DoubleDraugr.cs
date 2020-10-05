@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 /*
@@ -10,8 +12,22 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     
-    public class DoubleDraugr: Entree, IOrderItem
+    public class DoubleDraugr: Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -25,42 +41,172 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets whether or not to add ketchup
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get
+            {
+                return this.ketchup;
+            }
+            set
+            {
+                if (value != this.ketchup)
+                {
+                    this.ketchup = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool ketchup = true;
 
         /// <summary>
         /// Gets whether or not to add Bun
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun
+        {
+            get
+            {
+                return this.bun;
+            }
+            set
+            {
+                if (value != this.bun)
+                {
+                    this.bun = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool bun = true;
+
 
         /// <summary>
         /// Gets whether or not to add mustard
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get
+            {
+                return this.mustard;
+            }
+            set
+            {
+                if (value != this.mustard)
+                {
+                    this.mustard = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool mustard = true;
 
         /// <summary>
         /// Gets whether or not to add Pickle
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get
+            {
+                return this.pickle;
+            }
+            set
+            {
+                if (value != this.pickle)
+                {
+                    this.pickle = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool pickle = true;
 
         /// <summary>
         /// Gets whether or not to add Cheese
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get
+            {
+                return this.cheese;
+            }
+            set
+            {
+                if (value != this.cheese)
+                {
+                    this.cheese = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool cheese = true;
+
+
 
         /// <summary>
         /// Gets whether or not to add Tomato
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get
+            {
+                return this.tomato;
+            }
+            set
+            {
+                if (value != this.tomato)
+                {
+                    this.tomato = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
+        private bool tomato = true;
         /// <summary>
         /// Gets whether or not to add Lettuce
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce
+        {
+            get
+            {
+                return this.lettuce;
+            }
+            set
+            {
+                if (value != this.lettuce)
+                {
+                    this.lettuce = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool lettuce = true;
 
         /// <summary>
         /// Gets whether or not to add Mayo
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo
+        {
+            get
+            {
+                return this.mayo;
+            }
+            set
+            {
+                if (value != this.mayo)
+                {
+                    this.mayo = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool mayo = true;
 
         /// <summary>
         /// Allows customizations on the burger

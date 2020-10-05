@@ -1,4 +1,5 @@
-﻿using PointOfSale.EntreeCustomization;
+﻿using BleakwindBuffet.Data.Entrees;
+using PointOfSale.EntreeCustomization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +25,11 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeLists : Page
     {
+#pragma warning disable CS0169 // The field 'EntreeLists.currentSelection' is never used
+        private object currentSelection;
+#pragma warning restore CS0169 // The field 'EntreeLists.currentSelection' is never used
+
+        public event EventHandler<CustomizationSelector> CurrentSelection;
         /// <summary>
         /// initializes the entree list
         /// </summary>
@@ -32,6 +38,7 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+       // public MainWindow mainwindow = new MainWindow();
         /// <summary>
         /// navigates to the briar burger cutomizations
         /// </summary>
@@ -39,7 +46,18 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void BriarBurger_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Briarhear_Burgers());
+            var bb = new BriarheartBurger();
+
+
+            Briarhear_Burgers bBurger = new Briarhear_Burgers();
+
+
+            this.NavigationService.Navigate(bBurger);
+            bBurger.DataContext = bb;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = bb });
+            //window.finallist.Add(bb);
+           // Console.WriteLine(window.finallist);
+          
         }
 
         /// <summary>
@@ -49,7 +67,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void DoubleDraugr_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Double_Draugr());
+            var tt = new DoubleDraugr();
+
+
+            Double_Draugr tBurger = new Double_Draugr();
+
+
+            this.NavigationService.Navigate(tBurger);
+            tBurger.DataContext = tt;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = tt });
+         
         }
 
         /// <summary>

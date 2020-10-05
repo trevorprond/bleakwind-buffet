@@ -20,6 +20,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             var AJ = new AretinoAppleJuice();
 
             Assert.PropertyChanged(AJ, "Ice", () => AJ.Ice = true);
+            Assert.PropertyChanged(AJ, "Ice", () => AJ.Ice = false);
+        }
+
+        [Fact]
+        public void ChangingSizesNotifiesSizeProperty()
+        {
+            var AJ = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(AJ, "Size", () => AJ.Size = Size.Medium);
+            Assert.PropertyChanged(AJ, "Size", () => AJ.Size = Size.Large);
+            Assert.PropertyChanged(AJ, "Size", () => AJ.Size = Size.Small);
         }
         [Fact]
         public void ShouldBeADrink()

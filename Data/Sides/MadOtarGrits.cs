@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -11,8 +13,38 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Sides
 {
     
-    public class MadOtarGrits : Side, IOrderItem
+    public class MadOtarGrits : Side, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private Size size = Size.Small;
         /// <summary>
         /// Gets the price of the Cheesy Grits
         /// </summary>
@@ -38,10 +70,7 @@ namespace BleakwindBuffet.Data.Sides
             }
 
         }
-        /// <summary>
-        /// Gets the Size of the Cheesy Grits with it being a default of small
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
+
 
         /// <summary>
         /// Gets the calories of the Cheesy Grits based on size

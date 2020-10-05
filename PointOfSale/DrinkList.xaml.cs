@@ -1,4 +1,5 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using PointOfSale.DrinkCustomization;
 using System;
 using System.Collections.Generic;
@@ -25,14 +26,26 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkList : Page
     {
+       
+
+        
+
+        /* public List<IOrderItem> drinklist
+        {
+            get { return drinklist;  }
+        }*/
         /// <summary>
         /// intitializes drinklist xaml
         /// </summary>
         public DrinkList()
         {
             InitializeComponent();
+            
         }
 
+         MainWindow window = (MainWindow)Application.Current.MainWindow;
+
+        public event EventHandler<CustomizationSelector> currentSelection;
         /// <summary>
         /// navigates to the sailor soda cutomizations
         /// </summary>
@@ -53,6 +66,7 @@ namespace PointOfSale
             this.NavigationService.Navigate(new Markarth_Milk());
         }
 
+         
         /// <summary>
         /// navigates to the aretino apple juice cutomizations
         /// </summary>
@@ -62,7 +76,15 @@ namespace PointOfSale
         {
             var Aj = new AretinoAppleJuice();
 
-            this.NavigationService.Navigate(new AretinoApple_Juice());
+
+            AretinoApple_Juice AppleJuice = new AretinoApple_Juice();
+
+            
+            this.NavigationService.Navigate(AppleJuice);
+            AppleJuice.DataContext = Aj;
+            currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = Aj });
+            window.finallist.Add(Aj);
+            Console.WriteLine(window.finallist);
 
         }
 

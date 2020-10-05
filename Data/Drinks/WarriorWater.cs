@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -11,8 +13,21 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets the price of the water
@@ -34,7 +49,26 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the Size of the water with it being a default of small
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// private variable declaration
+        /// </summary>
+        private Size size = Size.Small;
 
         /// <summary>
         /// Gets the calories of the water based on size
@@ -53,13 +87,45 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets whether or not to add ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool ice = true;
 
         /// <summary>
         /// gets whether or not to add lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get
+            {
+                return this.lemon;
+            }
+            set
+            {
+                if(value != this.lemon)
+                {
+                    this.lemon = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
+
+        private bool lemon = false;
       
 
         /// <summary>

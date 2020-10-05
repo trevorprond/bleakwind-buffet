@@ -18,19 +18,41 @@ namespace BleakwindBuffet.Data.Drinks
      
     {
         /// <summary>
-        /// 
+        /// propertychanged event handler
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
 
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "" )
         { 
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
+        
         /// <summary>
         /// Gets the price of the juice
         /// </summary>
         double price;
+
+        public Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// private variable declaration
@@ -99,7 +121,9 @@ namespace BleakwindBuffet.Data.Drinks
                     NotifyPropertyChanged();
                 }
             }
-        } 
+        }
+
+
 
         private bool ice = false;
         /// <summary>

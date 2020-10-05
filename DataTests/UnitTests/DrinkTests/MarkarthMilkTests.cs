@@ -15,6 +15,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class MarkarthMilkTests
     {
         [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var mm = new MarkarthMilk();
+
+            Assert.PropertyChanged(mm, "Ice", () => mm.Ice = true);
+            Assert.PropertyChanged(mm, "Ice", () => mm.Ice = false);
+        }
+
+        [Fact]
+        public void ChangingSizesNotifiesSizeProperty()
+        {
+            var mm = new MarkarthMilk();
+
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Medium);
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Large);
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Small);
+        }
+        [Fact]
         public void ShouldBeADrink()
         {
             MarkarthMilk mm = new MarkarthMilk();

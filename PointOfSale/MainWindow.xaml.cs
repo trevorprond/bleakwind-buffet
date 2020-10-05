@@ -1,4 +1,5 @@
-﻿using PointOfSale.SideCustomization;
+﻿using BleakwindBuffet.Data;
+using PointOfSale.SideCustomization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,15 +27,31 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+       DrinkList drinklists = new DrinkList();
+        EntreeLists entreelists = new EntreeLists();
+        SideList sidelist = new SideList();
         /// <summary>
         /// Declares the main window with homepage
         /// </summary>
+        /// 
+        public List<IOrderItem> finallist = new List<IOrderItem>();
+
+      
         public MainWindow()
         {
             InitializeComponent();
             frame.NavigationService.Navigate(new WelcomePage());
+            // drinklist.currentSelection += FoodButtonClick;
+            //finallist.Add((IOrderItem)drinklists.drinklist);
         }
 
+        public void FoodButtonClick(object sender, CustomizationSelector e)
+        {
+            //finallist.Add(e.orderItem);
+            
+        }
+
+       
         /// <summary>
         /// Shows all the entrees available
         /// </summary>
