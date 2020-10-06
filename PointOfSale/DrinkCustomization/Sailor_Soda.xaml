@@ -30,7 +30,8 @@
 
 
         <CheckBox Grid.Row="1"
-              Content="Small" Margin="9" />
+              Content="Small" Margin="9" 
+                  IsChecked="{Binding Path=Size, Mode=TwoWay}"/>
         <CheckBox Grid.Row="2"
               Content="Medium" Margin="9" />
         <CheckBox Grid.Row="3"
@@ -38,7 +39,8 @@
         <CheckBox Grid.Row="4"
              Content="Blackberry" Margin="9" />
         <CheckBox Grid.Row="5"
-             Content="Cherry" Margin="9" />
+             Content="Cherry" Margin="9"
+                  IsChecked="{Binding Path=Flavor, Mode=TwoWay}"/>
         <CheckBox Grid.Row="6"
              Content="Grapefruit" Margin="9" />
         <CheckBox Grid.Row="7"
@@ -48,7 +50,8 @@
         <CheckBox Grid.Row="9"
              Content="Watermelon" Margin="9" />
         <CheckBox Grid.Row="10"
-             Content="Ice" Margin="9" />
+             Content="Ice" Margin="9"
+                  IsChecked="{Binding Path=Ice, Mode=TwoWay}"/>
 
         <Button Grid.Row="11"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBeginning"/>

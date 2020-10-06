@@ -53,7 +53,17 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void SailorSoda_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Sailor_Soda());
+            var ss = new SailorSoda();
+
+
+            Sailor_Soda Soda = new Sailor_Soda();
+
+
+            this.NavigationService.Navigate(Soda);
+            Soda.DataContext = ss;
+            currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ss });
+            window.finallist.Add(ss);
+ 
         }
 
         /// <summary>
@@ -63,7 +73,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void MarkarthMilk_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Markarth_Milk());
+            var mm = new MarkarthMilk();
+
+
+            Markarth_Milk Milk = new Markarth_Milk();
+
+
+            this.NavigationService.Navigate(Milk);
+            Milk.DataContext = mm;
+            currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = mm });
+            window.finallist.Add(mm);
         }
 
          
@@ -84,7 +103,7 @@ namespace PointOfSale
             AppleJuice.DataContext = Aj;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = Aj });
             window.finallist.Add(Aj);
-            Console.WriteLine(window.finallist);
+     
 
         }
 
@@ -95,7 +114,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void CandlehearthCoffe_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Candlehearth_Coffee());
+             var cc = new CandlehearthCoffee();
+
+
+            Candlehearth_Coffee Coffee = new Candlehearth_Coffee();
+
+            
+            this.NavigationService.Navigate(Coffee);
+            Coffee.DataContext = cc;
+            currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = cc });
+            window.finallist.Add(cc);
         }
 
         /// <summary>
@@ -105,7 +133,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void WarriorWater(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Warrior_Water());
+            var ww = new WarriorWater();
+
+
+            Warrior_Water Water = new Warrior_Water();
+
+
+            this.NavigationService.Navigate(Water);
+            Water.DataContext = ww;
+            currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ww });
+            window.finallist.Add(ww);
         }
     }
 }

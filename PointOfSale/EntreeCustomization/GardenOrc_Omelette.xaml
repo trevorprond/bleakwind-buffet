@@ -24,13 +24,17 @@
 
 
         <CheckBox Grid.Row="1"
-              Content="Broccoli" Margin="9" />
+              Content="Broccoli" Margin="9"
+                  IsChecked="{Binding Path=Broccoli, Mode=TwoWay}"/>
         <CheckBox Grid.Row="2"
-              Content="Mushrooms" Margin="9" />
+              Content="Mushrooms" Margin="9"
+                  IsChecked="{Binding Path=Mushrooms, Mode=TwoWay}"/>
         <CheckBox Grid.Row="3"
-              Content="Tomato" Margin="9" />
+              Content="Tomato" Margin="9"
+                  IsChecked="{Binding Path=Tomato, Mode=TwoWay}"/>
         <CheckBox Grid.Row="4"
-             Content="Cheddar" Margin="9" />
+             Content="Cheddar" Margin="9" 
+                  IsChecked="{Binding Path=Cheddar, Mode=TwoWay}"/>
        
         <Button Grid.Row="5"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBegin"/>

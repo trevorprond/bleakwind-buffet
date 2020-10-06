@@ -1,4 +1,5 @@
-﻿using PointOfSale.SideCustomization;
+﻿using BleakwindBuffet.Data.Sides;
+using PointOfSale.SideCustomization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class SideList : Page
     {
+        public event EventHandler<CustomizationSelector> CurrentSelection;
+
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// initializes sidelist xaml
         /// </summary>
@@ -39,7 +43,17 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void VokunSalad_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new SideCustom());
+            var vs = new VokunSalad();
+
+
+
+            SideCustom sc = new SideCustom();
+
+            NavigationService.Navigate(sc);
+            sc.DataContext = vs;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = vs });
+            window.finallist.Add(vs);
+
         }
 
         /// <summary>
@@ -49,7 +63,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void FriedMiraak_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new SideCustom());
+            var fm = new FriedMiraak();
+
+
+
+            SideCustom sc = new SideCustom();
+
+            NavigationService.Navigate(sc);
+            sc.DataContext = fm;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = fm });
+            window.finallist.Add(fm);
         }
 
         /// <summary>
@@ -59,7 +82,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void MadOtarGrits_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new SideCustom());
+            var og = new MadOtarGrits();
+
+
+
+            SideCustom sc = new SideCustom();
+
+            NavigationService.Navigate(sc);
+            sc.DataContext = og;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = og });
+            window.finallist.Add(og);
         }
 
         /// <summary>
@@ -69,7 +101,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void DragonbornWaffleFries_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new SideCustom());
+            var dw = new DragonbornWaffleFries();
+
+
+
+            SideCustom sc = new SideCustom();
+
+            NavigationService.Navigate(sc);
+            sc.DataContext = dw;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = dw });
+            window.finallist.Add(dw);
         }
     }
 }

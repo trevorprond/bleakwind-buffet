@@ -30,9 +30,11 @@
         <CheckBox Grid.Row="3"
               Content="Large" Margin="9" />
         <CheckBox Grid.Row="4"
-             Content="Ice" Margin="9" />
+             Content="Ice" Margin="9" 
+                  IsChecked="{Binding Path=Ice, Mode=TwoWay}"/>
         <CheckBox Grid.Row="5"
-             Content="Lemon" Margin="9" />
+             Content="Lemon" Margin="9"
+                  IsChecked="{Binding Path=Lemon, Mode=TwoWay}"/>
         <Button Grid.Row="6"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBegin"/>
     </Grid>

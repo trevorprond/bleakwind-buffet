@@ -30,25 +30,35 @@
 
 
         <CheckBox Grid.Row="1"
-              Content="Ketchup" Margin="9" />
+              Content="Ketchup" Margin="9"
+                  IsChecked="{Binding Path=Ketchup, Mode=TwoWay}"/>
         <CheckBox Grid.Row="2"
-              Content="Bun" Margin="9" />
+              Content="Bun" Margin="9"
+                  IsChecked="{Binding Path=Bun, Mode=TwoWay}"/>
         <CheckBox Grid.Row="3"
-              Content="Mustard" Margin="9" />
+              Content="Mustard" Margin="9"
+                  IsChecked="{Binding Path=Mustard, Mode=TwoWay}"/>
         <CheckBox Grid.Row="4"
-             Content="Pickle" Margin="9" />
+             Content="Pickle" Margin="9"
+                  IsChecked="{Binding Path=Pickle, Mode=TwoWay}"/>
         <CheckBox Grid.Row="5"
-             Content="Cheese" Margin="9" />
+             Content="Cheese" Margin="9"
+                  IsChecked="{Binding Path=Cheese, Mode=TwoWay}"/>
         <CheckBox Grid.Row="6"
-             Content="Tomato" Margin="9" />
+             Content="Tomato" Margin="9" 
+                  IsChecked="{Binding Path=Tomato, Mode=TwoWay}"/>
         <CheckBox Grid.Row="7"
-             Content="Lettuce" Margin="9" />
+             Content="Lettuce" Margin="9"
+                  IsChecked="{Binding Path=Lettuce, Mode=TwoWay}"/>
         <CheckBox Grid.Row="8"
-             Content="Mayo" Margin="9" />
+             Content="Mayo" Margin="9" 
+                  IsChecked="{Binding Path=Mayo, Mode=TwoWay}"/>
         <CheckBox Grid.Row="9"
-             Content="Bacon" Margin="9" />
+             Content="Bacon" Margin="9" 
+                  IsChecked="{Binding Path=Bacon, Mode=TwoWay}"/>
         <CheckBox Grid.Row="10"
-             Content="Egg" Margin="9" />
+             Content="Egg" Margin="9" 
+                  IsChecked="{Binding Path=Egg, Mode=TwoWay}"/>
 
         <Button Grid.Row="11"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBeginning"/>

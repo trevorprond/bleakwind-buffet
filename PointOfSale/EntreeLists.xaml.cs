@@ -25,9 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeLists : Page
     {
-#pragma warning disable CS0169 // The field 'EntreeLists.currentSelection' is never used
-        private object currentSelection;
-#pragma warning restore CS0169 // The field 'EntreeLists.currentSelection' is never used
+
 
         public event EventHandler<CustomizationSelector> CurrentSelection;
         /// <summary>
@@ -38,7 +36,9 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-       // public MainWindow mainwindow = new MainWindow();
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
+
+        // public MainWindow mainwindow = new MainWindow();
         /// <summary>
         /// navigates to the briar burger cutomizations
         /// </summary>
@@ -55,8 +55,8 @@ namespace PointOfSale
             this.NavigationService.Navigate(bBurger);
             bBurger.DataContext = bb;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = bb });
-            //window.finallist.Add(bb);
-           // Console.WriteLine(window.finallist);
+            window.finallist.Add(bb);
+
           
         }
 
@@ -86,7 +86,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void ThalmorTriple_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Thalmor_Triple());
+            var ct = new ThalmorTriple();
+
+
+            Thalmor_Triple tripBurg = new Thalmor_Triple();
+
+
+            this.NavigationService.Navigate(tripBurg);
+            tripBurg.DataContext = ct;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ct });
+            window.finallist.Add(ct);
         }
 
         /// <summary>
@@ -96,7 +105,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void SmokehouseSkeleton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Smokehouse_Skeleton());
+            var ss = new SmokehouseSkeleton();
+
+
+            Smokehouse_Skeleton smoke = new Smokehouse_Skeleton();
+
+
+            this.NavigationService.Navigate(smoke);
+            smoke.DataContext = ss;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ss });
+            window.finallist.Add(ss);
         }
 
         /// <summary>
@@ -106,7 +124,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void GardenOrcOmelete_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new GardenOrc_Omelette());
+            var oo = new GardenOrcOmelette();
+
+
+            GardenOrc_Omelette orcOm = new GardenOrc_Omelette();
+
+
+            this.NavigationService.Navigate(orcOm);
+            orcOm.DataContext = oo;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = oo });
+            window.finallist.Add(oo);
         }
 
         /// <summary>
@@ -116,7 +143,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void PhillyPoacher_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new PhillyPoacher());
+            var pp = new PhillyPoacher();
+
+
+            Philly_Poacher phillyPoach = new Philly_Poacher();
+
+
+            this.NavigationService.Navigate(phillyPoach);
+            phillyPoach.DataContext = pp;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = pp });
+            window.finallist.Add(pp);
         }
 
         /// <summary>
@@ -126,7 +162,16 @@ namespace PointOfSale
         /// <param name="e">button pressed</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Thugs_T_Bone());
+            var tb = new ThugsTBone();
+
+
+            Thugs_T_Bone tBone = new Thugs_T_Bone();
+
+
+            this.NavigationService.Navigate(tBone);
+            tBone.DataContext = tb;
+            CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = tb });
+            window.finallist.Add(tb);
         }
     }
 }

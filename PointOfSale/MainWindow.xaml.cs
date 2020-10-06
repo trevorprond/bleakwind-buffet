@@ -43,6 +43,14 @@ namespace PointOfSale
             frame.NavigationService.Navigate(new WelcomePage());
             // drinklist.currentSelection += FoodButtonClick;
             //finallist.Add((IOrderItem)drinklists.drinklist);
+            /*StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < finallist.Count; i++)
+            {
+               
+                sb.Append(finallist[i]);
+            }
+
+            orderdetails.Text = sb.ToString();*/
         }
 
         public void FoodButtonClick(object sender, CustomizationSelector e)
@@ -91,5 +99,7 @@ namespace PointOfSale
         {
             frame.NavigationService.Navigate(new SideList());
         }
+
+        
     }
 }

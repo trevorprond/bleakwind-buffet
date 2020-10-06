@@ -25,16 +25,20 @@
 
 
         <CheckBox Grid.Row="1"
-              Content="Small" Margin="9" />
+              Content="Small" Margin="9"
+                  IsChecked="{Binding Path=Size, Mode=TwoWay}"/>
         <CheckBox Grid.Row="2"
               Content="Medium" Margin="9" />
         <CheckBox Grid.Row="3"
               Content="Large" Margin="9" />
         <CheckBox Grid.Row="4"
-             Content="Cream" Margin="9" />
+             Content="Cream" Margin="9"
+                  IsChecked="{Binding Path=RoomForCream, Mode=TwoWay}"/>
         <CheckBox Grid.Row="5"
-             Content="Decaf" Margin="9" />
+             Content="Decaf" Margin="9"
+                  IsChecked="{Binding Path=Decaf, Mode=TwoWay}"/>
         <Button Grid.Row="6"
-                Content="Done" Margin="9" ClickMode="Release" Click="BacktoBegin"/>
+                Content="Done" Margin="9" ClickMode="Release" Click="BacktoBegin"
+                />
     </Grid>
 </Page>

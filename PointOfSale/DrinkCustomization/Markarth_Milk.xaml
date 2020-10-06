@@ -24,13 +24,15 @@
 
 
         <CheckBox Grid.Row="1"
-              Content="Small" Margin="9" />
+              Content="Small" Margin="9"
+                  IsChecked="{Binding Path=Size, Mode=TwoWay}"/>
         <CheckBox Grid.Row="2"
               Content="Medium" Margin="9" />
         <CheckBox Grid.Row="3"
               Content="Large" Margin="9" />
         <CheckBox Grid.Row="4"
-              Content="Ice" Margin="9" />
+              Content="Ice" Margin="9" 
+                  IsChecked="{Binding Path=Ice, Mode=TwoWay}"/>
         <Button Grid.Row="6"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBegin"/>
     </Grid>
