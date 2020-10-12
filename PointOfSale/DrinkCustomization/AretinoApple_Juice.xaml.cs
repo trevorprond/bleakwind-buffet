@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Drinks;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -28,9 +29,10 @@ namespace PointOfSale.DrinkCustomization
         /// </summary>
         public AretinoApple_Juice()
         {
+         
             InitializeComponent();
         }
-
+        public event EventHandler<CustomizationSelector> CurrentSelector;
 
         /// <summary>
         /// navigates to the welcome page
@@ -39,6 +41,7 @@ namespace PointOfSale.DrinkCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
+            
             this.NavigationService.Navigate(new WelcomePage());
         }
     }

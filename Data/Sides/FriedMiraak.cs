@@ -15,20 +15,7 @@ namespace BleakwindBuffet.Data.Sides
     
     public class FriedMiraak : Side, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
         public Size Size
         {
             get
@@ -41,6 +28,9 @@ namespace BleakwindBuffet.Data.Sides
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
                 }
             }
         }

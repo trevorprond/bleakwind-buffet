@@ -76,7 +76,8 @@ namespace PointOfSale
             this.NavigationService.Navigate(tBurger);
             tBurger.DataContext = tt;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = tt });
-         
+            window.finallist.Add(tt);
+
         }
 
         /// <summary>

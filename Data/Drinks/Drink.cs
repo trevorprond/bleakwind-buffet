@@ -1,6 +1,8 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -10,8 +12,23 @@ namespace BleakwindBuffet.Data.Drinks
     * Class name: Drink.cs
     * Purpose: A base class representing common properties of Drinks
     */
-    public abstract class Drink
+    public abstract class Drink : INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// propertychanged event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// notify property helper method
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// The size of the drink
         /// </summary>
@@ -33,6 +50,17 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Special instructions to prepare drink
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; }
+        public abstract List<string> SpecialInstructions 
+        
+        {  get; }
+
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+       /* protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }*/
     }
 }

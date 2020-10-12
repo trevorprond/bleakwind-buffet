@@ -14,20 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     
     public class BriarheartBurger: Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
 
         /// <summary>
         /// Gets whether or not to add ketchup
@@ -159,6 +146,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Mustard) instructions.Add("Hold mustard");
                 if (!Cheese) instructions.Add("Hold cheese");
                 if (!Pickle) instructions.Add("Hold pickle");
+                NotifyPropertyChanged();
                 return instructions;
             }
         }

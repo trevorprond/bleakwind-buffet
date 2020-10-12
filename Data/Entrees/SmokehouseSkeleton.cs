@@ -14,20 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     
     public class SmokehouseSkeleton: Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
         /// <summary>
         /// Gets the price of the Breakfast Combo
         /// </summary>
@@ -136,6 +123,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Egg) instructions.Add("Hold eggs");
                 if (!HashBrowns) instructions.Add("Hold hash browns");
                 if (!Pancake) instructions.Add("Hold pancakes");
+                NotifyPropertyChanged();
                 return instructions;
             }
         }

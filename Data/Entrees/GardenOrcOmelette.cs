@@ -14,22 +14,9 @@ namespace BleakwindBuffet.Data.Entrees
     
     public class GardenOrcOmelette: Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        /// <summary>
+         /// <summary>
         /// Gets the price of the Vegetarian omelette
+        /// </summary>
         public override double Price => 4.57;
 
         /// <summary>
@@ -134,6 +121,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Mushrooms) instructions.Add("Hold mushrooms");
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Cheddar) instructions.Add("Hold cheddar");
+                NotifyPropertyChanged();
                 return instructions;
             }
         }

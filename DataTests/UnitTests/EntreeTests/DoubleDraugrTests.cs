@@ -8,12 +8,19 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Diagnostics.Tracing;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
     {
 
+        [Fact]
+        public void ShouldBeAINotifyPropertyChanged()
+        {
+            var dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dd);
+        }
         [Fact]
         public void ChangingKetchupNotifiesKetchupProperty()
         {

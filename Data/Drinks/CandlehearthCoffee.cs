@@ -15,20 +15,7 @@ namespace BleakwindBuffet.Data.Drinks
     
     public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
         /// <summary>
         /// Gets the price of the coffee
         /// </summary>
@@ -70,6 +57,9 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
                 }
             }
         }

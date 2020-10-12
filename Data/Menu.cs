@@ -88,7 +88,7 @@ namespace BleakwindBuffet.Data
             {
                 AretinoAppleJuice appleJuice = new AretinoAppleJuice();
                 appleJuice.Size = s;
-                drinks.Add(appleJuice);
+                drinks.Add((IOrderItem)appleJuice);
 
                 CandlehearthCoffee coffee = new CandlehearthCoffee();
                 coffee.Size = s;

@@ -36,11 +36,14 @@ namespace PointOfSale
         /// 
         public List<IOrderItem> finallist = new List<IOrderItem>();
 
+        Order newOrder = new Order();
       
         public MainWindow()
         {
             InitializeComponent();
+            DisplayCurrentOrder();
             frame.NavigationService.Navigate(new WelcomePage());
+            
             // drinklist.currentSelection += FoodButtonClick;
             //finallist.Add((IOrderItem)drinklists.drinklist);
             /*StringBuilder sb = new StringBuilder();
@@ -68,6 +71,8 @@ namespace PointOfSale
         private void Entrees_Loaded(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new EntreeLists());
+            DisplayCurrentOrder();
+          
         }
 
         /// <summary>
@@ -78,6 +83,7 @@ namespace PointOfSale
         private void EntreesClick(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new EntreeLists());
+            DisplayCurrentOrder();
         }
 
         /// <summary>
@@ -88,6 +94,7 @@ namespace PointOfSale
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new DrinkList());
+            DisplayCurrentOrder();
         }
 
         /// <summary>
@@ -98,8 +105,29 @@ namespace PointOfSale
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new SideList());
+            DisplayCurrentOrder();
         }
 
+
+        /// <summary>
+        /// Displays the order being made at the time
+        /// </summary>
+        public void DisplayCurrentOrder()
+        {
+            finalorderlist.Items.Clear();
+            finalpricelist.Items.Clear();
+
+            finalorderlist.Items.Add("  Order #" + newOrder.OrderNumber);
+
+            foreach(IOrderItem item in newOrder.Items)
+            {
+                finalorderlist.Items.Add(item.ToString() + " $" + item.Price);
+                foreach(string specialstruc in item.SpecialInstructions)
+                {
+                    finalorderlist.Items.Add("-" + specialstruc);
+                }
+            }
+        }
         
     }
 }

@@ -5,13 +5,20 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using Xunit;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
 
-    [Fact]
+        [Fact]
+        public void ShouldBeAINotifyPropertyChanged()
+        {
+            var ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
+        }
+        [Fact]
     public void ChangingIceNotifiesIceProperty()
     {
       var ww = new WarriorWater();

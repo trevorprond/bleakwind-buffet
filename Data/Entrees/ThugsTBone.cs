@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /*
@@ -10,7 +11,7 @@ using System.Text;
 namespace BleakwindBuffet.Data.Entrees
 {
     
-    public class ThugsTBone: Entree, IOrderItem
+    public class ThugsTBone: Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the T-Bone
@@ -31,9 +32,13 @@ namespace BleakwindBuffet.Data.Entrees
             get
             {
                 List<string> instructions = new List<string>();
+
                 return instructions;
             }
         }
+
+     
+
         /// <summary>
         /// Gets the name of the T-Bone
         /// </summary>

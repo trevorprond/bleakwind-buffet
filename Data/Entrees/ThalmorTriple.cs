@@ -14,20 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     
     public class ThalmorTriple : Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -268,6 +255,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Mayo) instructions.Add("Hold mayo");
                 if (!Bacon) instructions.Add("Hold bacon");
                 if (!Egg) instructions.Add("Hold egg");
+                NotifyPropertyChanged();
 
                 return instructions;
             }

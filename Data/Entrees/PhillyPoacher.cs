@@ -14,20 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     
     public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
 
         /// <summary>
         /// Gets the price of the Philly cheesesteak sandwich
@@ -113,6 +100,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Sirloin) instructions.Add("Hold sirloin");
                 if (!Onion) instructions.Add("Hold onions");
                 if (!Roll) instructions.Add("Hold roll");
+                NotifyPropertyChanged();
                 return instructions;
             }
         }

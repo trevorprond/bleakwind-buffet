@@ -15,19 +15,7 @@ namespace BleakwindBuffet.Data.Drinks
     
     public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
-        /// propertychanged event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        /// <summary>
-        /// notify property helper method
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
 
         /// <summary>
         /// Gets the price of the water
@@ -61,6 +49,9 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
                 }
             }
         }
@@ -138,6 +129,7 @@ namespace BleakwindBuffet.Data.Drinks
                 List<string> instructions = new List<string>();
                 if (!Ice) instructions.Add("Hold ice");
                 if (Lemon) instructions.Add("Add lemon");
+                NotifyPropertyChanged();
                 return instructions;
             }
         }
