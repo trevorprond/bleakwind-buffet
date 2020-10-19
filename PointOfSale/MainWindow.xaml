@@ -7,20 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="800">
     <Grid>
+        <ListView x:Name="finalorderlist"    Margin="640,-1,-1,314" Background="#FFE73D28" IsSynchronizedWithCurrentItem="True"  SelectionChanged="finalorderlist_SelectionChanged"/>
         <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,600,0" Background="#FF1E3BD4"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="454,190,0,0" VerticalAlignment="Top" Width="100"/>
         <Button Content="Drinks" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Button_Click"/>
         <Button x:Name="Entrees" Content="Entrees" HorizontalAlignment="Left" Margin="40,233,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="EntreesClick"/>
         <Button Content="Sides" HorizontalAlignment="Left" Margin="40,342,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Button_Click_1"/>
-        <Frame x:Name="frame" Content="" Margin="200,-13,165,-3" NavigationUIVisibility="Hidden" />
+        <Border x:Name="switching" Margin="200,-13,165,-3" >
+            <local:WelcomePage x:Name="descendant"/>
+        </Border>
         <Border  BorderThickness="1" x:Name="price" BorderBrush="Black" Margin="635,375,0,0" Background="#FFE73D28">
-            <ListView x:Name="finalpricelist" Background="#FFE73D28" ></ListView>
+            <ListView x:Name="finalpricelist"  Background="#FFE73D28" ></ListView>
         </Border>
-        <Button Content="Finish" HorizontalAlignment="Left" Margin="658,574,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Button_Click"/>
-        <Button Content="Cancel Order" HorizontalAlignment="Left" Margin="658,479,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Button_Click"/>
-        <Border BorderThickness="1" x:Name="order" BorderBrush="Black" Margin="635,0,0,309" Background="#FFE73D28">
-            <ListView x:Name="finalorderlist" Background="#FFE73D28" Margin="1,-1,-1,394" />
-        </Border>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="658,574,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Button_Click_2"/>
+        <Button Content="Cancel Order" HorizontalAlignment="Left" Margin="658,479,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="CancleOrder_Click"/>
+        <Button Content="Combo" HorizontalAlignment="Left" Margin="40,536,0,0" VerticalAlignment="Top" Height="66" Width="120" Click="Complete_Combo"/>
 
 
     </Grid>

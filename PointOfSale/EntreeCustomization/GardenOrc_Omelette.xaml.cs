@@ -21,16 +21,18 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for GardenOrc_Omelette.xaml
     /// </summary>
-    public partial class GardenOrc_Omelette : Page
+    public partial class GardenOrc_Omelette : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes the garden orce omelette 
         /// </summary>
-        public GardenOrc_Omelette()
+        public GardenOrc_Omelette(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
-
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -38,7 +40,9 @@ namespace PointOfSale.EntreeCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.welcomePage);
         }
     }
 }

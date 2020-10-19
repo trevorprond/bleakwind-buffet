@@ -21,12 +21,16 @@ namespace PointOfSale.DrinkCustomization
     /// <summary>
     /// Interaction logic for Markarth_Milk.xaml
     /// </summary>
-    public partial class Markarth_Milk : Page
+    public partial class Markarth_Milk : UserControl
     {
-        public Markarth_Milk()
+        MainWindow ancestor;
+        public Markarth_Milk(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
+
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
 
         /// <summary>
         /// navigates to the welcome page
@@ -35,7 +39,8 @@ namespace PointOfSale.DrinkCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
         }
     }
 }

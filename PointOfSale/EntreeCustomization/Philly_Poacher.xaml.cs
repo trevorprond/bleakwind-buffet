@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,16 +22,19 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for PhillyPoacher.xaml
     /// </summary>
-    public partial class Philly_Poacher : Page
+    public partial class Philly_Poacher : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes the philly poacher page
         /// </summary>
-        public Philly_Poacher()
+        public Philly_Poacher(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
 
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -38,7 +42,9 @@ namespace PointOfSale.EntreeCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.welcomePage);
         }
     }
 }

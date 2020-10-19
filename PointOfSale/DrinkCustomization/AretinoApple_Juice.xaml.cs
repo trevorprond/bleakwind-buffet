@@ -22,18 +22,20 @@ namespace PointOfSale.DrinkCustomization
     /// <summary>
     /// Interaction logic for AretinoApple_Juice.xaml
     /// </summary>
-    public partial class AretinoApple_Juice : Page
+    public partial class AretinoApple_Juice : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initialize arentino apple juice customization
         /// </summary>
-        public AretinoApple_Juice()
+        public AretinoApple_Juice(MainWindow ancestor)
         {
          
             InitializeComponent();
+            this.ancestor = ancestor;
         }
-        public event EventHandler<CustomizationSelector> CurrentSelector;
-
+        //public event EventHandler<CustomizationSelector> CurrentSelector;
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -42,7 +44,8 @@ namespace PointOfSale.DrinkCustomization
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
             
-            this.NavigationService.Navigate(new WelcomePage());
+            //this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
         }
     }
 }

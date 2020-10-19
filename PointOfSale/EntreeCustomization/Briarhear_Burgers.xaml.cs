@@ -21,15 +21,19 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for Briarhear_Burgers.xaml
     /// </summary>
-    public partial class Briarhear_Burgers : Page
+    public partial class Briarhear_Burgers : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes briarheart burger page
         /// </summary>
-        public Briarhear_Burgers()
+        public Briarhear_Burgers(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
+
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
 
         /// <summary>
         /// navigates to the welcome page
@@ -38,7 +42,9 @@ namespace PointOfSale.EntreeCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+            //this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.welcomePage);
         }
     }
 }

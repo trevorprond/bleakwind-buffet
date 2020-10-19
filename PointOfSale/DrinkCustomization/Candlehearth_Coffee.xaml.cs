@@ -21,13 +21,16 @@ namespace PointOfSale.DrinkCustomization
     /// <summary>
     /// Interaction logic for Candlehearth_Coffee.xaml
     /// </summary>
-    public partial class Candlehearth_Coffee : Page
+    public partial class Candlehearth_Coffee : UserControl
     {
-        public Candlehearth_Coffee()
+        MainWindow ancestor;
+        public Candlehearth_Coffee(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
 
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -35,7 +38,8 @@ namespace PointOfSale.DrinkCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBegin(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+            //this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
         }
     }
 }

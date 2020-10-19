@@ -11,26 +11,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/*
- * Author: Trevor Prondzinski
- * Class name: sidecustom.xaml.cs
- * Purpose: To allow ordering and customization of the sides
- */
 namespace PointOfSale.SideCustomization
 {
     /// <summary>
-    /// Interaction logic for SideCustom.xaml
+    /// Interaction logic for DragonbornWaffleFriesCustom.xaml
     /// </summary>
-    public partial class SideCustom : UserControl
+    public partial class DragonbornWaffleFriesCustom : UserControl
     {
-        public SideCustom()
+        MainWindow ancestor;
+        public DragonbornWaffleFriesCustom(MainWindow ancestor)
         {
             InitializeComponent();
-        }
-
-        private void BacktoBegin(object sender, RoutedEventArgs e)
-        {
-           // this.NavigationService.Navigate(new WelcomePage());
+            this.ancestor = ancestor;
         }
     }
 }

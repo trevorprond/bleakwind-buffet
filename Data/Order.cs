@@ -32,6 +32,8 @@ namespace BleakwindBuffet.Data
         /// </summary>
         private List<IOrderItem> items = new List<IOrderItem>();
 
+
+
         /// <summary>
         /// list of items for the order
         /// </summary>
@@ -60,7 +62,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                return Subtotal * .12;
+                return Math.Round(Subtotal * .12, 2);
             }
         }
         /// <summary>
@@ -70,7 +72,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                return Subtotal * 1.12;
+                return Math.Round(Subtotal * 1.12, 2);
             }
         }
 

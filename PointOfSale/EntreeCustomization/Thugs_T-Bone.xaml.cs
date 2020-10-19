@@ -21,15 +21,18 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for Thugs_T_Bone.xaml
     /// </summary>
-    public partial class Thugs_T_Bone : Page
+    public partial class Thugs_T_Bone : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes the thugs t-bone page
         /// </summary>
-        public Thugs_T_Bone()
+        public Thugs_T_Bone(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
 
         /// <summary>
         /// navigates to the welcome page
@@ -38,7 +41,9 @@ namespace PointOfSale.EntreeCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBeginning(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.welcomePage);
         }
     }
 }

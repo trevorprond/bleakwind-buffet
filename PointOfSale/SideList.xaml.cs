@@ -23,17 +23,19 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for SideList.xaml
     /// </summary>
-    public partial class SideList : Page
+    public partial class SideList : UserControl
     {
         public event EventHandler<CustomizationSelector> CurrentSelection;
 
+        MainWindow ancestor;
         MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// initializes sidelist xaml
         /// </summary>
-        public SideList()
+        public SideList(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
 
         /// <summary>
@@ -47,12 +49,13 @@ namespace PointOfSale
 
 
 
-            SideCustom sc = new SideCustom();
+            VokunSaladCustom sc = new VokunSaladCustom(ancestor);
 
-            NavigationService.Navigate(sc);
+           // NavigationService.Navigate(sc);
             sc.DataContext = vs;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = vs });
-            window.finallist.Add(vs);
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.custVokun, vs);
 
         }
 
@@ -67,12 +70,13 @@ namespace PointOfSale
 
 
 
-            SideCustom sc = new SideCustom();
+            FriedMiraakCustom sc = new FriedMiraakCustom(ancestor);
 
-            NavigationService.Navigate(sc);
+           // NavigationService.Navigate(sc);
             sc.DataContext = fm;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = fm });
-            window.finallist.Add(fm);
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.custFried, fm);
         }
 
         /// <summary>
@@ -86,12 +90,13 @@ namespace PointOfSale
 
 
 
-            SideCustom sc = new SideCustom();
+            MadOtarGritsCustom sc = new MadOtarGritsCustom(ancestor);
 
-            NavigationService.Navigate(sc);
+           // NavigationService.Navigate(sc);
             sc.DataContext = og;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = og });
-            window.finallist.Add(og);
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.custMad, og);
         }
 
         /// <summary>
@@ -103,14 +108,15 @@ namespace PointOfSale
         {
             var dw = new DragonbornWaffleFries();
 
+            DragonbornWaffleFriesCustom sc = new DragonbornWaffleFriesCustom(ancestor);
 
+           
 
-            SideCustom sc = new SideCustom();
-
-            NavigationService.Navigate(sc);
+           // NavigationService.Navigate(sc);
             sc.DataContext = dw;
             CurrentSelection?.Invoke(this, new CustomizationSelector() { orderItem = dw });
-            window.finallist.Add(dw);
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.custMarkarth, dw);
         }
     }
 }

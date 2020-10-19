@@ -21,16 +21,19 @@ namespace PointOfSale.DrinkCustomization
     /// <summary>
     /// Interaction logic for Sailor_Soda.xaml
     /// </summary>
-    public partial class Sailor_Soda : Page
+    public partial class Sailor_SodaCustom : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes sailor soda page
         /// </summary>
-        public Sailor_Soda()
+        public Sailor_SodaCustom(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
 
+        //MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -38,7 +41,8 @@ namespace PointOfSale.DrinkCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBeginning(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            //window.DisplayCurrentOrder();
         }
     }
 }

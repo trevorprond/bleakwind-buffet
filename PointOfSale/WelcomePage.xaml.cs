@@ -20,8 +20,9 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for WelcomePage.xaml
     /// </summary>
-    public partial class WelcomePage : Page
+    public partial class WelcomePage : UserControl
     {
+        public MainWindow Ancestor { get; set; }
         public WelcomePage()
         {
             InitializeComponent();

@@ -21,16 +21,19 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for Double_Draugr.xaml
     /// </summary>
-    public partial class Double_Draugr : Page
+    public partial class Double_Draugr : UserControl
     {
+        MainWindow ancestor;
         /// <summary>
         /// initializes the double draugr page
         /// </summary>
-        public Double_Draugr()
+        public Double_Draugr(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
 
+        MainWindow window = (MainWindow)Application.Current.MainWindow;
         /// <summary>
         /// navigates to the welcome page
         /// </summary>
@@ -38,7 +41,9 @@ namespace PointOfSale.EntreeCustomization
         /// <param name="e">button pressed</param>
         private void BacktoBeginning(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new WelcomePage());
+           // this.NavigationService.Navigate(new WelcomePage());
+            window.DisplayCurrentOrder();
+            ancestor.SwitchScreen(Screen.welcomePage);
         }
     }
 }

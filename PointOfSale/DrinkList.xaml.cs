@@ -24,11 +24,11 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for DrinkList.xaml
     /// </summary>
-    public partial class DrinkList : Page
+    public partial class DrinkList : UserControl
     {
-       
 
-        
+
+        public MainWindow ancestor;
 
         /* public List<IOrderItem> drinklist
         {
@@ -37,11 +37,13 @@ namespace PointOfSale
         /// <summary>
         /// intitializes drinklist xaml
         /// </summary>
-        public DrinkList()
+        public DrinkList(MainWindow ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
             
         }
+       
 
          MainWindow window = (MainWindow)Application.Current.MainWindow;
 
@@ -56,14 +58,15 @@ namespace PointOfSale
             var ss = new SailorSoda();
 
 
-            Sailor_Soda Soda = new Sailor_Soda();
+            Sailor_SodaCustom Soda = new Sailor_SodaCustom(ancestor);
 
 
-            this.NavigationService.Navigate(Soda);
+           // this.NavigationService.Navigate(Soda);
             Soda.DataContext = ss;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ss });
-            window.finallist.Add(ss);
- 
+            window.newOrder.Add(ss);
+            ancestor.SwitchScreen(Screen.custSailor, ss);
+
         }
 
         /// <summary>
@@ -76,13 +79,14 @@ namespace PointOfSale
             var mm = new MarkarthMilk();
 
 
-            Markarth_Milk Milk = new Markarth_Milk();
+            Markarth_Milk Milk = new Markarth_Milk(ancestor);
 
 
-            this.NavigationService.Navigate(Milk);
+           // this.NavigationService.Navigate(Milk);
             Milk.DataContext = mm;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = mm });
-            window.finallist.Add(mm);
+            window.newOrder.Add(mm);
+            ancestor.SwitchScreen(Screen.custMarkarth, mm);
         }
 
          
@@ -96,14 +100,15 @@ namespace PointOfSale
             var Aj = new AretinoAppleJuice();
 
 
-            AretinoApple_Juice AppleJuice = new AretinoApple_Juice();
+            AretinoApple_Juice AppleJuice = new AretinoApple_Juice(ancestor);
 
             
-            this.NavigationService.Navigate(AppleJuice);
+            //this.NavigationService.Navigate(AppleJuice);
             AppleJuice.DataContext = Aj;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = Aj });
-            window.finallist.Add(Aj);
-     
+            window.newOrder.Add(Aj);
+            ancestor.SwitchScreen(Screen.custAretino, Aj);
+
 
         }
 
@@ -117,13 +122,14 @@ namespace PointOfSale
              var cc = new CandlehearthCoffee();
 
 
-            Candlehearth_Coffee Coffee = new Candlehearth_Coffee();
+            Candlehearth_Coffee Coffee = new Candlehearth_Coffee(ancestor);
 
             
-            this.NavigationService.Navigate(Coffee);
+           // this.NavigationService.Navigate(Coffee);
             Coffee.DataContext = cc;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = cc });
-            window.finallist.Add(cc);
+            window.newOrder.Add(cc);
+            ancestor.SwitchScreen(Screen.custCandlehearth, cc);
         }
 
         /// <summary>
@@ -136,13 +142,14 @@ namespace PointOfSale
             var ww = new WarriorWater();
 
 
-            Warrior_Water Water = new Warrior_Water();
+            Warrior_Water Water = new Warrior_Water(ancestor);
 
 
-            this.NavigationService.Navigate(Water);
+            //this.NavigationService.Navigate(Water);
             Water.DataContext = ww;
             currentSelection?.Invoke(this, new CustomizationSelector() { orderItem = ww });
-            window.finallist.Add(ww);
+            window.newOrder.Add(ww);
+            ancestor.SwitchScreen(Screen.custWarrior, ww);
         }
     }
 }

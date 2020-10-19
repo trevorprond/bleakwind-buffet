@@ -1,4 +1,4 @@
-﻿<Page x:Class="PointOfSale.EntreeCustomization.Double_Draugr"
+﻿<UserControl x:Class="PointOfSale.EntreeCustomization.Double_Draugr"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="450"
-      Title="Double_Draugr">
+      >
 
     <Grid>
 
@@ -55,4 +55,4 @@
         <Button Grid.Row="9"
                 Content="Done" Margin="9" ClickMode="Release" Click="BacktoBeginning"/>
     </Grid>
-</Page>
+</UserControl>
