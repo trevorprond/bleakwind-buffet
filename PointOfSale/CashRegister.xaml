@@ -59,7 +59,7 @@ d:DesignHeight="700" d:DesignWidth="450">
             <TextBox Height="53" Width="150" FontSize="38" HorizontalAlignment="Center" Text="{Binding Path=FiftiesChange}"></TextBox>
             <TextBox Height="53" Width="150" FontSize="38" HorizontalAlignment="Center" Text="{Binding Path=HundredsChange}"></TextBox>
 
-            <Button Height="53" Click="Button_Click"> </Button>
+            <Button Height="53" Content="Change" Click="Button_Click"> </Button>
         </StackPanel>
     
     </Grid>

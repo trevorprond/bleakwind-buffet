@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Trevor Prondzinski
+ * Class name: CashRegister.xaml.cs
+ * Purpose: To allow transactions to be complete
+ */
 namespace PointOfSale
 {
     /// <summary>
@@ -81,12 +86,24 @@ namespace PointOfSale
 
         }
         MainWindow window = (MainWindow)Application.Current.MainWindow;
+        
+        /// <summary>
+        /// click event for cash registrer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ancestor.SwitchScreen(Screen.cashRegistar);
 
         }
 
+
+        /// <summary>
+        /// Prints the receipt to the dll
+        /// </summary>
+        /// <param name="typeofPayment"></param>
+        /// <param name="totalChange"></param>
         public void PrintReciept(string typeofPayment, double totalChange)
         {
             RecieptPrinter.PrintLine("Order # " + usethisOrder.OrderNumber.ToString());

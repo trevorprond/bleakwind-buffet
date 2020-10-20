@@ -7,16 +7,34 @@ using System.Windows;
 using System.Windows.Controls;
 namespace PointOfSale
 {
+    /*
+     * Author: Trevor Prondzinski
+    * Class name: Registrar.xaml.cs
+    * Purpose: To allow transactions to be complete
+    */
     public class RegistrarFunction: INotifyPropertyChanged
     {
+        /// <summary>
+        /// property chnged event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         MainWindow wnd = (MainWindow)Application.Current.MainWindow;
 
+        /// <summary>
+        /// what the customer currently owes
+        /// </summary>
         double CurOwe;
-
+        
+        /// <summary>
+        /// pulls total from original order
+        /// </summary>
         public double originalTotal;
         
+        /// <summary>
+        /// constructor for register class
+        /// </summary>
+        /// <param name="order"></param>
         public RegistrarFunction(Order order)
         {
             originalTotal = order.Total;
@@ -427,6 +445,11 @@ namespace PointOfSale
             }
         }
 
+
+        /// <summary>
+        /// Gets the change due using highest bill/change first
+        /// </summary>
+        /// <param name="ogAmount"></param>
         public void ChangeDue(double ogAmount)
         {
             double remainder = ogAmount - TotalPaid;

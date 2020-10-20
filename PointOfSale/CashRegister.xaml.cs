@@ -12,6 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Trevor Prondzinski
+ * Class name: CashRegister.xaml.cs
+ * Purpose: To allow transactions to be complete
+ */
 namespace PointOfSale
 {
     /// <summary>
@@ -21,11 +26,15 @@ namespace PointOfSale
     {
         MainWindow ancestor;
 
-        //MainWindow window = (MainWindow)Application.Current.MainWindow;
 
         Order curOrder = new Order();
         RegistrarFunction Cash;
 
+        /// <summary>
+        /// Cash Register constructor
+        /// </summary>
+        /// <param name="ancestor"></param>
+        /// <param name="order"></param>
         public CashRegister(MainWindow ancestor, Order order)
         {
             InitializeComponent();
@@ -37,6 +46,12 @@ namespace PointOfSale
 
         }
         
+
+        /// <summary>
+        /// Change due click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Cash.ChangeDue(curOrder.Total);
