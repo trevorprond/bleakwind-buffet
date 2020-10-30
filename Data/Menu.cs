@@ -138,6 +138,26 @@ namespace BleakwindBuffet.Data
         }
 
 
+        /// <summary>
+        /// allows to get sides onto website
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="s"></param>
+        public static void sideIncrease(Side obj, Size s)
+        {
+            obj.Size = s;
+        }
+
+        /// <summary>
+        /// alllows to get drinks on to website
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="s"></param>
+        public static void drinkIncrease(Drink obj, Size s)
+        {
+            obj.Size = s;
+        }
+
 
 
     }

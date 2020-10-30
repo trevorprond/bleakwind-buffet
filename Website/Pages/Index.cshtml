@@ -1,0 +1,92 @@
+﻿@page
+@using BleakwindBuffet.Data.Entrees
+@using BleakwindBuffet.Data.Sides
+@using BleakwindBuffet.Data.Drinks
+@using BleakwindBuffet.Data.Enums
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Bleakwind Buffet</h1>
+    <p>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+        Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
+        You’ve had a hard adventure and earned your loot, so spend it with us!.
+    </p>
+
+    <h2>Welcome to Bleakwind Buffet where we have all kinds of Skyrim themed Entrees, Sides, and Drinks!</h2>
+</div>
+
+<div class="Entrees">
+    <h2>Entrees</h2>
+    @foreach (Entree e in BleakwindBuffet.Data.Menu.Entrees())
+    {
+        <div class="menuEntree">
+            <h6>@e.ToString()</h6>
+            <div class="price">
+                Price:  @e.Price
+            </div>
+            <div class="calories">
+                Calories: @e.Calories
+            </div>
+        </div>
+    }
+</div>
+
+<div class="Sides">
+    <h2>Sides</h2>
+    @foreach (Side s in BleakwindBuffet.Data.Menu.Sides())
+    {
+        @foreach (Size size in Enum.GetValues(typeof(Size)))
+        {
+            BleakwindBuffet.Data.Menu.sideIncrease(s, size);
+            <div class="menuSide">
+                <h6>@s.ToString()</h6>
+                <div class="price">
+                    Price:  @s.Price
+                </div>
+                <div class="calories">
+                    Calories: @s.Calories
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<div class="Drinks">
+    <h2>Drinks</h2>
+    @foreach (Drink d in BleakwindBuffet.Data.Menu.Drinks())
+    {
+        @foreach (Size size in Enum.GetValues(typeof(Size)))
+        {
+            BleakwindBuffet.Data.Menu.drinkIncrease(d, size);
+            <div class="menuDrink">
+
+                <h6>@d.ToString()</h6>
+                <div class="price">
+                    Price:  @d.Price
+                </div>
+                <div class="calories">
+                    Calories: @d.Calories
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<div class="combo">Create a Combo! Add any Entree, Side, and Drink to a combo order and get $1 off your order price!</div>
+
+<div class="sodaFlavors">
+    <div>The available flavors for the Sailor Soda are:</div>
+    <ul>
+        <li>Blackberry</li>
+        <li>Cherry</li>
+        <li>Grapefruit</li>
+        <li>Lemon</li>
+        <li>Peach</li>
+        <li>Watermelon</li>
+    </ul>
+</div>
