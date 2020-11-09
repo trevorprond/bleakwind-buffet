@@ -4,6 +4,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 /*
@@ -136,29 +137,155 @@ namespace BleakwindBuffet.Data
 
             return menu;
         }
-
-
+      
         /// <summary>
-        /// allows to get sides onto website
+        /// Searches the menu
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="s"></param>
-        public static void sideIncrease(Side obj, Size s)
+        /// <param name="terms">The terms to search for</param>
+        /// <returns>A collection of movies</returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> curMenu, string terms)
         {
-            obj.Size = s;
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (terms == null) return FullMenu();
+            foreach (IOrderItem item in FullMenu())
+            {
+               
+                if (item.ToString() != null && item.ToString().ToLower().Contains(terms.ToLower()))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
 
         /// <summary>
-        /// alllows to get drinks on to website
+        /// Gets the possible Category
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="s"></param>
-        public static void drinkIncrease(Drink obj, Size s)
+        public static string[] Category
         {
-            obj.Size = s;
+            get => new string[]
+            {
+                "Entrees",
+                "Sides",
+                "Drinks"
+            };
         }
 
+        /// <summary>
+        /// Gets the items within the category selected
+        /// </summary>
+        /// <param name="all"></param>
+        /// <param name="categories">the category to search in</param>
+        /// <returns>the current items in the specific categories</returns>
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> curMenu, IEnumerable<string> categories)
+        {
+            if (categories == null || categories.Count() == 0) return curMenu;
+          
+            List<IOrderItem> menuFiltered = new List<IOrderItem>();
+            foreach (IOrderItem curItem in curMenu)
+            {
+               foreach (string curCategory in categories)
+                {
+                    if (curCategory.Equals("Entrees") && curItem is Entree)
+                    {
+                            menuFiltered.Add(curItem);
+                    }
 
+                    if (curCategory.Equals("Sides") && curItem is Side)
+                    {
+                           menuFiltered.Add(curItem);
+                    }
+
+                    if (curCategory.Equals("Drinks") && curItem is Drink)
+                    {
+                            menuFiltered.Add(curItem);
+                    }
+                }
+            }
+            return menuFiltered;
+        }
+
+        /// <summary>
+        /// returns menu items in between calorie filterd
+        /// </summary>
+        /// <param name="curMenu"></param>
+        /// <param name="Calmin"></param>
+        /// <param name="Calmax"></param>
+        /// <returns>the current menu items in between the calorie filters</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> curMenu, int? Calmin, int? Calmax)
+        {
+            if (Calmin == null && Calmax == null) return curMenu;
+            var menuFiltered = new List<IOrderItem>();
+           
+            if (Calmax == null)
+            {
+                foreach (IOrderItem i in curMenu)
+                {
+                    if (i.Calories >= Calmin) menuFiltered.Add(i);
+                }
+                return menuFiltered;
+            }
+
+            if (Calmin == null)
+            {
+                foreach (IOrderItem i in curMenu)
+                {
+                    if (i.Calories <= Calmax) menuFiltered.Add(i);
+                }
+                return menuFiltered;
+            }
+
+            foreach (IOrderItem i in curMenu)
+            {
+                if (i.Calories >= Calmin && i.Calories <= Calmax)
+                {
+                    menuFiltered.Add(i);
+                }
+            }
+            return menuFiltered;
+        }
+
+        /// <summary>
+        /// return menu items in between price filters
+        /// </summary>
+        /// <param name="curMenu">the current menu</param>
+        /// <param name="priceMin"> the current price min</param>
+        /// <param name="priceMax">the current price max</param>
+        /// <returns>the menu items that fall in the range</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> curMenu, double? priceMin, double? priceMax)
+        {
+            if (priceMin == null && priceMax == null) return curMenu;
+            var menuFiltered = new List<IOrderItem>();
+
+            
+            if (priceMin == null)
+            {
+                foreach (IOrderItem i in curMenu)
+                {
+                    if (i.Price <= priceMax) menuFiltered.Add(i);
+                }
+                return menuFiltered;
+            }
+           
+            if (priceMax == null)
+            {
+                foreach (IOrderItem i in curMenu)
+                {
+                    if (i.Price >= priceMin) menuFiltered.Add(i);
+                }
+                return menuFiltered;
+            }
+         
+            foreach (IOrderItem i in curMenu)
+            {
+                if (i.Price >= priceMin && i.Price <= priceMax)
+                {
+                    menuFiltered.Add(i);
+                }
+            }
+            return menuFiltered;
+        }
 
     }
 }

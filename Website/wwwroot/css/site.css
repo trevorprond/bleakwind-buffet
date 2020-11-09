@@ -69,3 +69,14 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+ul.ItemName {
+    color: darkslategray;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+h6, h2, ul.Itemname, ul.Price {
+    background-color: yellow
+}
+

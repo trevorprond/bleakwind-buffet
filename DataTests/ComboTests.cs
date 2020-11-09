@@ -57,7 +57,7 @@ namespace BleakwindBuffet.DataTests
         }
 
 
-        [Theory]
+      /*  [Theory]
         [InlineData(Size.Small, 1011)]
         [InlineData(Size.Medium, 1132)]
         [InlineData(Size.Large, 1254)]
@@ -74,7 +74,7 @@ namespace BleakwindBuffet.DataTests
             combo1.Side.Size = size;
             combo1.Drink.Size = size;
             Assert.Equal(calories, combo1.Calories);
-        }
+        }*/
 
 
         [Fact]
@@ -95,8 +95,8 @@ namespace BleakwindBuffet.DataTests
 
 
 
-        [Fact]
-        public void AddingComboShouldTriggerSizeChanges()
+       /* [Fact]
+     public void AddingComboShouldTriggerSizeChanges()
         {
             var bb = new GardenOrcOmelette();
             var aj = new SailorSoda();
@@ -113,7 +113,7 @@ namespace BleakwindBuffet.DataTests
             //make more methods for calories and sizes
 
 
-        }
+        }*/
 
         [Theory]
         [InlineData(true, true, true, true, true, true, true, true, true, true)]
