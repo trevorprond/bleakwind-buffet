@@ -132,5 +132,16 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return Size + " Aretino Apple Juice";
         }
+
+        /// <summary>
+        /// gets the description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return ("Fresh squeezed apple juice.");
+            }
+        }
     }
 }

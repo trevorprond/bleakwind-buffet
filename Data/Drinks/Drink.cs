@@ -54,13 +54,18 @@ namespace BleakwindBuffet.Data.Drinks
         
         {  get; }
 
+        /// <summary>
+        /// Description of entree
+        /// </summary>
+        public abstract string Description { get; }
+
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-       /* protected void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-        }*/
+        /* protected void NotifyOfPropertyChange(string propertyName)
+         {
+             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+         }*/
     }
 }

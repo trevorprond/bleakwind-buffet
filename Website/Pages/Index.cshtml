@@ -55,46 +55,53 @@
             You’ve had a hard adventure and earned your loot, so spend it with us!.
         </p>
 
-        <h2>Welcome to Bleakwind Buffet where we have all kinds of Skyrim themed Entrees, Sides, and Drinks!</h2>
+        <h3>Welcome to Bleakwind Buffet where we have all kinds of Skyrim themed Entrees, Sides, and Drinks!</h3>
     </div>
 
 
 
 
-    <div class="Entrees">
+    <div class="Item-columns">
+        <div>
         <h2>Entrees</h2>
         @foreach (IOrderItem i in Model.CurrentMenu)
         {
             @if (i is Entree)
             {
                 <h5 class="ItemName">@i.ToString()</h5>
+                <h8 class="description">@i.Description</h8>
                 <ul class="menuEntree">
                     <li class="ItemPrice">Price:  @i.Price</li>
                     <li class="ItemCalories">Calories: @i.Calories </li>
                 </ul>
             }
         }
+        </div>
     </div>
 
-    <div class="Sides">
-
-        <h2>Sides</h2>
-        @foreach (IOrderItem i in Model.CurrentMenu)
-        {
-            @if (i is Side)
+    <div class="Item-columns">
+        <div>
+            <h2>Sides</h2>
+            @foreach (IOrderItem i in Model.CurrentMenu)
             {
-                Side curSide = (Side)i;
-                <h5 class="ItemName">@curSide.ToString()</h5>
-                <ul class="Side">
-                    <li class="ItemPrice">Price: @curSide.Price</li>
-                    <li class="ItemCalories">Calories: @curSide.Calories</li>
-                </ul>
 
+                @if (i is Side)
+                {
+                    Side curSide = (Side)i;
+                    <h5 class="ItemName">@curSide.ToString()</h5>
+                    <h8 class="description">@i.Description</h8>
+                    <ul class="Side">
+                        <li class="ItemPrice">Price: @curSide.Price</li>
+                        <li class="ItemCalories">Calories: @curSide.Calories</li>
+                    </ul>
+
+                }
             }
-        }
+        </div>
     </div>
 
-    <div class="Drinks">
+    <div class="Item-columns">
+        <div>
         <h2>Drinks</h2>
         @foreach (IOrderItem d in Model.CurrentMenu)
         {
@@ -103,6 +110,7 @@
 
                 Drink curDrink = (Drink)d;
                 <h5 class="ItemName">@curDrink.ToString()</h5>
+                <h8 class="description">@d.Description</h8>
                 <ul class="Drink">
                     <li class="ItemPrice"> Price: @curDrink.Price </li>
                     <li class="ItemCalories">Calories: @curDrink.Calories </li>
@@ -110,6 +118,7 @@
 
             }
         }
+        </div>
     </div>
 
     <h2>Other Details:</h2>

@@ -59,8 +59,13 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    
+}
+h8 {
+    color: blue;
+    text-align: left;
 }
 .footer {
   position: absolute;
@@ -76,7 +81,39 @@ ul.ItemName {
     margin: 0;
 }
 
-h6, h2, ul.Itemname, ul.Price {
+h2 {
     background-color: yellow
 }
+
+aside {
+    border: 5px solid gray;
+}
+
+@media (max-width: 750px) {
+    /* applies when the screen is under 750 pixels wide */
+    aside {
+        border: 3px dashed gray;
+    }
+}
+
+@media (max-width: 490px) {
+    /* applies when the screen is under 490 pixels wide */
+    aside {
+        border: 2px dotted gray;
+    }
+}
+
+.Item-columns > div {
+    float: left;
+    width: 33%;
+}
+
+@media (max-width: 490px) {
+    /* Reset the columns to render with the flow of the page */
+    .Item-columns > div {
+        float: none;
+        width: 100%;
+    }
+}
+
 

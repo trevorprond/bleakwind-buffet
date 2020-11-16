@@ -20,6 +20,8 @@ namespace BleakwindBuffet.DataTests
 
         public uint Calories { get;  set; }
 
+        public string Description { get; set; }
+
         public List<string> SpecialInstructions { get; set; }
 
         [Fact]

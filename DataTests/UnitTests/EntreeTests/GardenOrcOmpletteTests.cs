@@ -180,5 +180,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.Contains("Garden Orc Omelette", oo.ToString());
 
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            DoubleDraugr oo = new DoubleDraugr();
+            Assert.Equal("Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.", oo.Description);
+        }
     }
 }

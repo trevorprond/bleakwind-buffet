@@ -174,6 +174,8 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        public string Description { get; }
+
         /// <summary>
         /// Notifys when the property changes for any side, entree, or drink
         /// </summary>

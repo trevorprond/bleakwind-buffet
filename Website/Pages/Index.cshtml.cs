@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -64,11 +67,76 @@ namespace Website.Pages
 
         public void OnGet()
         {
-            CurrentMenu = Menu.Search(CurrentMenu, SearchTerms);
-            CurrentMenu = Menu.FilterByCategory(CurrentMenu, Category);
-            CurrentMenu = Menu.FilterByCalories(CurrentMenu, CalMin, CalMax);
-            CurrentMenu = Menu.FilterByPrice(CurrentMenu, PriceMin, PriceMax);
-            
+
+            CurrentMenu = Menu.FullMenu();
+
+            IEnumerable<IOrderItem> CurDescriptionMenu = Menu.FullMenu();
+
+          
+
+            //Filter by term
+            if (SearchTerms != null)
+            {
+                foreach (string d in SearchTerms.Split(' '))
+                {
+                    foreach (IOrderItem item in CurrentMenu)
+                    {
+                        CurDescriptionMenu = CurDescriptionMenu.Where(item => item.Description.ToLower().Contains(d.ToLower()));
+
+                        CurrentMenu = CurrentMenu.Where(item => item.ToString().ToLower().Contains(SearchTerms.ToLower()) || item.Description.ToLower().Contains(d.ToLower()));
+                    }
+                    foreach (IOrderItem curitem in CurDescriptionMenu)
+                    {
+                        CurrentMenu.Append(curitem);
+                    }
+
+                }
+
+               
+            }
+
+           
+
+
+
+            //Filter by calories
+            if (CalMin != null || CalMax != null)
+            {
+                foreach (IOrderItem item in CurrentMenu)
+                {
+                    CurrentMenu = CurrentMenu.Where(item => (CalMin != null && item.Calories >= CalMin) || (CalMax != null && item.Calories <= CalMax));
+
+                    if (CalMax != null && CalMin != null)
+                    {
+                        CurrentMenu = CurrentMenu.Where(item => item.Calories >= CalMin && item.Calories <= CalMax);
+                    }
+                }
+            }
+
+            //filter by price
+            if (PriceMin != null || PriceMax != null)
+            {
+                foreach (IOrderItem item in CurrentMenu)
+                {
+                  
+                    CurrentMenu = CurrentMenu.Where(item =>  (PriceMin != null && item.Price >= PriceMin) || (PriceMax != null && item.Price <= PriceMax));
+
+                    if (PriceMax != null && PriceMin != null)
+                    {
+                        CurrentMenu = CurrentMenu.Where(item => item.Price >= PriceMin && item.Price <= PriceMax);
+                    }
+                }
+            }
+
+            //filter by category
+            if (Category.Count() != 0)
+            {
+                    foreach (IOrderItem item in CurrentMenu)
+                    {
+                       
+                        CurrentMenu = CurrentMenu.Where(item => (item is Entree && Category.Contains("Entrees")) || (Category.Contains("Sides") && item is Side) || (Category.Contains("Drinks") && item is Drink));
+                    }
+            }
         }
     }
 }
